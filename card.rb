@@ -6,4 +6,8 @@ class Card
     @num = num
   end
 
+  def show
+    puts "#{@mark} #{@num}"
+  end
+
 end
