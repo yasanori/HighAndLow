@@ -5,6 +5,7 @@ require './maney.rb'
 
 deck = Deck.new
 maney = Maney.new
+yourmaney = 1000000
 
 puts <<~text
   ~~  ~~  ~~  ~~
@@ -13,8 +14,9 @@ puts <<~text
             LOW
   ~~  ~~  ~~  ~~
 text
-while true do
-  puts "参加しますか？（参加費：100000＄）"
+while yourmaney > 0 do
+  puts "財布の中身：#{maney.cash}$"
+  puts "[参加しますか？]"
   while true do
     puts <<~text
       参加　：１
@@ -30,12 +32,23 @@ while true do
     end
   end
 
+  while true do
+    puts <<~text
+      100000$ ~ #{yourmaney}$
+      [掛け金を入力してください]
+    text
+    bet_maney = gets.to_i
+    break unless yourmaney < bet_maney || bet_maney < 100000
+  end
+
   puts <<~text
     -----------
     High or Low
     -----------
+    財布の中身: [ #{yourmaney}$ ]
+    掛け金　　: [ #{bet_maney}$ ]
   text
-  puts "相手のカード"
+  puts "[相手のカード]"
   vscard = deck.open
   vscard.show
   vsnum = vscard.put_num
@@ -48,20 +61,20 @@ while true do
     if decision ==1 or decision == 2
       break
     else
-      puts "１か２で入力してください"
+      puts "[１か２で入力してください]"
     end
   end
 
   if decision == 1
-    puts "あなたの選択：high"
-    puts "カードオープン"
+    puts "[あなたの選択：high]"
+    puts "[カードオープン]"
     yourcard = deck.open
     yourcard.show
     yourcard.judgment(vsnum, decision)
 
   elsif decision == 2
-    puts "あなたの選択：low"
-    puts "カードオープン"
+    puts "[あなたの選択：low]"
+    puts "[カードオープン]"
     yourcard = deck.open
     yourcard.show
     yourcard.judgment(vsnum, decision)
