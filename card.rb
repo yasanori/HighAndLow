@@ -24,19 +24,25 @@ class Card
     end
   end
 
-  def judgment(vsnum, decision)
+  def judgment(vsnum, decision, maney)
 
     put_num
 
     if decision == 1
       if  vsnum < @num
         puts "win"
+        maney.win
+      elsif @num == vsnum
+        puts "drow"
       else
         puts "lose"
       end
-    else
+    elsif decision == 2
       if  @num < vsnum
         puts "win"
+        maney.win
+      elsif @num == vsnum
+        puts "drow"
       else
         puts "lose"
       end
