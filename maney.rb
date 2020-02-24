@@ -17,7 +17,7 @@ class Maney
     while true do
       puts <<~text
         [掛け金を入力してください ( 100000$単位 )]
-        100000$ ~ #{@cash}$
+        100000 ~ #{@cash}
       text
       @bet_maney = gets.to_i
       break if @cash >= @bet_maney && @bet_maney >= 100000 && @bet_maney % 100000 == 0
@@ -29,6 +29,11 @@ class Maney
     prize = (@bet_maney + @bet_maney)
     puts "賞金#{prize}"
     @cash += prize
+  end
+
+  def drow
+    puts "#{@bet_maney}$キャッシュバック"
+    @cash += @bet_maney
   end
 
 end

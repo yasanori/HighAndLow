@@ -34,6 +34,7 @@ class Card
         maney.win
       elsif @num == vsnum
         puts "drow"
+        maney.drow
       else
         puts "lose"
       end
@@ -43,6 +44,7 @@ class Card
         maney.win
       elsif @num == vsnum
         puts "drow"
+        maney.drow
       else
         puts "lose"
       end
