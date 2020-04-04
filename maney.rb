@@ -20,7 +20,11 @@ class Maney
         100000 ~ #{@cash}
       text
       @bet_maney = gets.to_i
-      break if @cash >= @bet_maney && @bet_maney >= 100000 && @bet_maney % 100000 == 0
+      if @cash >= @bet_maney && @bet_maney >= 100000 && @bet_maney % 100000 == 0
+        break
+      else
+        puts "その金額はかけることが出来ません"
+      end
     end
     @cash -= @bet_maney
   end

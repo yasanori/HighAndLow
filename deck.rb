@@ -18,6 +18,4 @@ class Deck
     @deck.shift
   end
 
-
-
 end
